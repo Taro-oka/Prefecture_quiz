@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+<body>
+    <div class="global-container">
+        <div class="result">
+            <button class="close-btn">
+                <span></span>
+                <span></span>
+            </button>
+            <h3>結果</h3>
+            <p class="score">ここに結果が</p>
+            <p class="comment"></p>
+            <table class="result__table">
+                <tr>
+                    <th>都市名</th>
+                    <th>都道府県</th>
+                    <th>あなたの回答</th>
+                    <th>合否</th>
+                </tr>
+            </table>
+        </div>
+        <div class="container">
+            <h2>表示される市のある都道府県を選んでね</h1>
+            <div class="quiz">ここに都市名が表示されます</div>
+            <form class="form">
+                <label><input type="radio" name="op" value="osaka">大阪</label>
+                <label><input type="radio" name="op" value="kyoto">京都</label>
+                <label><input type="radio" name="op" value="hyogo">兵庫</label>
+            </form>
+            <div class="buttons">
+                <button class="btn refresh">開始</button>
+                <button class="btn go">確定</button>
+            </div>
+        </div>
+    </div>
+    <script src="main.js"></script>
+    <script src="test.js"></script>
+</body>
+</html>
