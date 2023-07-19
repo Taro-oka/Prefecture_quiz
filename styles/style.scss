@@ -50,26 +50,13 @@ body {
         max-width: 500px;
 
         @extend .font-sm;
-        @extend .mb-md;
         height: 60px;
         line-height: 60px;
         text-align: center;
         font-weight: 600;
         margin: 0 auto;
+        @extend .mb-md;
         background-color: rgb(255, 249, 242);
-
-        @include mq(sm) {
-            @extend .font-md;
-        }
-        @include mq(md) {
-            @extend .font-md;
-        }
-        @include mq(lg) {
-            @extend .font-md;
-        }
-        @include mq(xl) {
-            @extend .font-md;
-        }
     }
 
     & .form {
@@ -217,19 +204,6 @@ body {
             @extend .font-sm;
             @extend .mb-lg;
             height: 1.5rem;
-
-            @include mq(sm) {
-                @extend .font-md;
-            }
-            @include mq(md) {
-                @extend .font-md;
-            }
-            @include mq(lg) {
-                @extend .font-md;
-            }
-            @include mq(xl) {
-                @extend .font-md;
-            }
         }
     }
 }
