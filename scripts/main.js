@@ -12,7 +12,7 @@ document.addEventListener("DOMContentLoaded", function() {
     set_default.disable_btn2();
     set_default.disable_btn3();
 
-    // Creaete instance of class -- to add evnets to the three buttons(start/next btn, comfirm btn, close btn on the result sheet)
+    // Create instance of class -- to add evnets to the three buttons(start/next btn, comfirm btn, close btn on the result sheet)
     const addEvents = new btn_addEvents(new_data, "inview");
     addEvents.addEvents_btn1();
     addEvents.addEvents_btn2();
