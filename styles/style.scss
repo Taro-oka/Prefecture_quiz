@@ -1,5 +1,6 @@
 @use "mixins" as *;
-
+@use "commons" as *;
+ 
 * {
     margin: 0;
     padding: 0;
@@ -37,9 +38,9 @@ body {
     padding-top: 50px;
 
     & > h2 {
+        @extend .mb-md;
         font-size: 18px;
         text-align: center;
-        margin-bottom: 25px;
     }
 
     & .quiz {
@@ -48,33 +49,33 @@ body {
         width: 80%;
         max-width: 500px;
 
+        @extend .font-sm;
+        @extend .mb-md;
         height: 60px;
         line-height: 60px;
         text-align: center;
         font-weight: 600;
-        font-size: 1rem;
         margin: 0 auto;
-        margin-bottom: 25px;
         background-color: rgb(255, 249, 242);
 
         @include mq(sm) {
-            font-size: 1.5rem;
+            @extend .font-md;
         }
         @include mq(md) {
-            font-size: 1.5rem;
+            @extend .font-md;
         }
         @include mq(lg) {
-            font-size: 1.5rem;
+            @extend .font-md;
         }
         @include mq(xl) {
-            font-size: 1.5rem;
+            @extend .font-md;
         }
     }
 
     & .form {
+        @extend .mb-md;
         display: flex;
         justify-content: center;
-        margin-bottom: 25px;
         & label {
             margin-right: 15px;
             font-size: 1.2rem;
@@ -100,12 +101,12 @@ body {
         justify-content: center;
 
         & .btn {
+            @extend .font-sm;
             width: 100px;
             height: 50px;
             display: block;
             border: 1px solid #333;
             cursor: pointer;
-            font-size: 1rem;
             background-color: #ffdddd;
             transition: all 0.2s;
             margin-right: 10px;
@@ -176,10 +177,10 @@ body {
     }
 
     &__table {
+        @extend .mb-sm;
         width: 90%;
         margin: 0 auto;
         border-collapse: collapse;
-        margin-bottom: 20px;
         & th,td {
             border: #333 solid 1px;
             text-align: center;
@@ -192,9 +193,9 @@ body {
     }
 
     & > h3 {
+        @extend .font-lg;
         width: fit-content;
         margin: 30px auto;
-        font-size: 2rem;
         line-height: 2rem;
         border: 2px solid #6b6b6b;
         border-radius: 10px;
@@ -203,31 +204,31 @@ body {
     }
 
     & > p {
+        @extend .font-lg;
         width: fit-content;
         margin: 0 auto;
         color: red;
         font-weight: 600;
-        font-size: 2rem;
 
         &:nth-of-type(1) {
-            margin-bottom: 20px;
+            @extend .mb-sm;
         }
         &:nth-of-type(2) {
-            font-size: 1rem;
+            @extend .font-sm;
+            @extend .mb-lg;
             height: 1.5rem;
-            margin-bottom: 50px;
 
             @include mq(sm) {
-                font-size: 1.5rem;
+                @extend .font-md;
             }
             @include mq(md) {
-                font-size: 1.5rem;
+                @extend .font-md;
             }
             @include mq(lg) {
-                font-size: 1.5rem;
+                @extend .font-md;
             }
             @include mq(xl) {
-                font-size: 1.5rem;
+                @extend .font-md;
             }
         }
     }
