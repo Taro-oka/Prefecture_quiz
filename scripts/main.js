@@ -1,5 +1,5 @@
 // 元データをここで宣言
-const main_table = [
+const main_data = [
     {
         id: 1,
         pref: "osaka",
@@ -18,20 +18,20 @@ const main_table = [
 ];
 
 // 問題を格納し、シャッフルするための配列をここで作る
-const new_table = [];
-main_table.forEach(val => {
+const new_data = [];
+main_data.forEach(val => {
     for (let i = 0; i < val.cities.length; i++) {
-        new_table.push([val.cities[i],val.pref,"",false]);
+        new_data.push([val.cities[i],val.pref,"",false]);
     }
 });
 // ここでシャッフルする
-for(let i = (new_table.length - 1); 0 < i; i--){
+for(let i = (new_data.length - 1); 0 < i; i--){
     // 0〜(i+1)の範囲で値を取得
     let r = Math.floor(Math.random() * (i + 1));
     // 要素の並び替えを実行
-    let tmp = new_table[i];
-    new_table[i] = new_table[r];
-    new_table[r] = tmp;
+    let tmp = new_data[i];
+    new_data[i] = new_data[r];
+    new_data[r] = tmp;
   }
 
 // 答えとなる値を格納するための変数をグローバルで
@@ -61,12 +61,12 @@ go.addEventListener("click",function() {
     for (let i = 0; i < len; i++) {
         if (ops.item(i).checked) {
             ans_times ++;
-            new_table[cnt - 1][2] = ops.item(i).value;
+            new_data[cnt - 1][2] = ops.item(i).value;
             if(ops.item(i).value === ans_pre) {
-                new_table[cnt - 1][3] = true;
+                new_data[cnt - 1][3] = true;
                 // alert("正解！");
             }else{
-                new_table[cnt - 1][3] = false;
+                new_data[cnt - 1][3] = false;
                 // alert("NOOO");
             }
             break;
@@ -119,10 +119,10 @@ refresh_btn.addEventListener("click", function() {
         return "Not excecuted";
     }
 
-    if(cnt >= new_table.length) {
+    if(cnt >= new_data.length) {
         // 結果を出す
         let score = 0;
-        new_table.forEach(ele => {
+        new_data.forEach(ele => {
             if (ele[3] === true) {
                 score ++;
             }
@@ -135,13 +135,13 @@ refresh_btn.addEventListener("click", function() {
         gc.classList.add("inview");
         result.classList.add("inview");
 
-        score_p.textContent = `${new_table.length}点中${score}点です`;
+        score_p.textContent = `${new_data.length}点中${score}点です`;
 
         // 結果の表示
         // 表の作成
         const result_tbl = document.querySelector(".result__table tbody");
         
-        for(let i = 1; i <= new_table.length; i++) {
+        for(let i = 1; i <= new_data.length; i++) {
             const tr = document.createElement("tr");
             const td1 = document.createElement("td");
             const td2 = document.createElement("td");
@@ -166,14 +166,14 @@ refresh_btn.addEventListener("click", function() {
             false: "✕",
         }
 
-        for(let i = 0; i < new_table.length; i++) {
+        for(let i = 0; i < new_data.length; i++) {
             const current_cell = result_tbl.children[i + 1];
-            current_cell.children[0].textContent = new_table[i][0];
-            current_cell.children[1].textContent = balance_sheet[new_table[i][1]];
-            current_cell.children[2].textContent = balance_sheet[new_table[i][2]];
-            current_cell.children[3].textContent = balance_sheet[new_table[i][3]];
+            current_cell.children[0].textContent = new_data[i][0];
+            current_cell.children[1].textContent = balance_sheet[new_data[i][1]];
+            current_cell.children[2].textContent = balance_sheet[new_data[i][2]];
+            current_cell.children[3].textContent = balance_sheet[new_data[i][3]];
 
-            if(new_table[i][3] === false) {
+            if(new_data[i][3] === false) {
                 current_cell.children[3].style = "color: red; font-weight: 700;";
             }else{
                 current_cell.children[3].style = "color: blue; font-weight: 600;";
@@ -194,8 +194,8 @@ refresh_btn.addEventListener("click", function() {
 
     }else{
         // シャッフルされた配列を0から順に
-        ans_pre = new_table[cnt][1];
-        ans_city = new_table[cnt][0];
+        ans_pre = new_data[cnt][1];
+        ans_city = new_data[cnt][0];
     
         const quiz = document.querySelector(".quiz");
         quiz.textContent = ans_city;
