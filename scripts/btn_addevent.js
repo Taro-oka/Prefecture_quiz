@@ -127,20 +127,20 @@ class btn_addEvents {
             }
 
             for(let i = 0; i < this.NonDOM.arr.length; i++) {
-            const current_cell = this.DOM.result_tbl.children[i + 1];
-            current_cell.children[0].textContent = this.NonDOM.arr[i][0];
-            current_cell.children[1].textContent = this.NonDOM.balance_sheet[this.NonDOM.arr[i][1]];
-            current_cell.children[2].textContent = this.NonDOM.balance_sheet[this.NonDOM.arr[i][2]];
-            current_cell.children[3].textContent = this.NonDOM.balance_sheet[this.NonDOM.arr[i][3]];
-            // 正解した問題と間違った問題によって〇と×を表示する
-            if(this.NonDOM.arr[i][3] === false) {
-                current_cell.children[3].style = "color: red; font-weight: 700;";
-            }else{
-                current_cell.children[3].style = "color: blue; font-weight: 600;";
+                const current_cell = this.DOM.result_tbl.children[i + 1];
+                current_cell.children[0].textContent = this.NonDOM.arr[i][0];
+                current_cell.children[1].textContent = this.NonDOM.balance_sheet[this.NonDOM.arr[i][1]];
+                current_cell.children[2].textContent = this.NonDOM.balance_sheet[this.NonDOM.arr[i][2]];
+                current_cell.children[3].textContent = this.NonDOM.balance_sheet[this.NonDOM.arr[i][3]];
+                // 正解した問題と間違った問題によって〇と×を表示する
+                if(this.NonDOM.arr[i][3] === false) {
+                    current_cell.children[3].style = "color: red; font-weight: 700;";
+                }else{
+                    current_cell.children[3].style = "color: blue; font-weight: 600;";
+                }
             }
-        }
 
-        // メッセージを点数別に表示する（ちょっと遅らせて）
+            // メッセージを点数別に表示する（ちょっと遅らせて）
                 const write_comment = function() {
                     let content;
                     if (score <= 3) {
