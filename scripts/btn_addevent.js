@@ -56,9 +56,8 @@ class btn_addEvents {
     }
 
     _innit_btn1() {
-        // console.log("ボタン1のメソッドです");
-
-        // まずは初期設定を解除する
+        const getReadyforNext = ()=> {
+            // まずは初期設定を解除する
         this.DOM.btn1.textContent = "次へ";
         this.DOM.btn2.disabled = false;
 
@@ -92,9 +91,8 @@ class btn_addEvents {
             return "Not excecuted";
          }
 
-         // 最後まで来たら、
-        // 全問題が修了したら、
-        if(this.NonDOM.cnt >= this.NonDOM.arr.length) {
+        }
+        const show_result = ()=> {
             // 結果を出す
             let score = 0;
             this.NonDOM.arr.forEach(ele => {
@@ -155,9 +153,8 @@ class btn_addEvents {
                 };
 
                 setTimeout(write_comment.bind(this),2000);
-
-        }else{
-            // まだ問題が途中の場合は、
+        }
+        const GoTo_nextQ = ()=> {
             // シャッフルされた配列の今の問題(cntの値)を表示する
             this.NonDOM.ans_pre = this.NonDOM.arr[this.NonDOM.cnt][1];
             this.NonDOM.ans_city = this.NonDOM.arr[this.NonDOM.cnt][0];
@@ -170,6 +167,17 @@ class btn_addEvents {
             // 次にこれがtrueになるまでは、次の問題へ行くのを防ぐ（誤って2回クリックした場合など）
             this.DOM.next = false;
         }
+
+        getReadyforNext();
+         // 最後まで来たら、
+         if(this.NonDOM.cnt >= this.NonDOM.arr.length) {
+             // 全問題が修了した場合
+            show_result();
+        }else{
+            // まだ問題が途中の場合
+            GoTo_nextQ();
+        }
+
     }
 
     _innit_btn2() {
