@@ -77,10 +77,10 @@ class btn_addEvents {
             fix_btn1_setting.bind(this)();
 
             // Prevent moving to next (in case clicked mistakenly)
-            if(disable_radios.bind(this)() === false) {
-                return [false, "None selected"]
-            }else if(check_gotoNext.bind(this)() === false){
+            if(check_gotoNext.bind(this)() === false) {
                 return [false, "Not confirmed yet"]
+            }else if(disable_radios.bind(this)() === false){
+                return [false, "None selected"]
             }else{
                 // if true retured...
                 // activate disabled options, and...  
@@ -101,7 +101,7 @@ class btn_addEvents {
             function check_gotoNext() {
                 // if "確定" is not clicked this will show up
                 if (this.NonDOM.next === false) {
-                    alert("確定を押してください");
+                    alert("確定されていないか、選択がされていない可能性があります");
                     return false;
                 }else{
                     return true;
@@ -277,7 +277,7 @@ class btn_addEvents {
         function get_ready_to_next(cnt) {
             // ↓カウントがゼロ、つまり選択がされていない時は、alertを出す
             if(cnt === 0) {
-                alert("選択されていないよ");
+                alert("選択がされていません");
                 return false;
             }else{
                 // それ意外の場合は、選択肢ボタンのdisabledをtrueにし、クリックできないようにする

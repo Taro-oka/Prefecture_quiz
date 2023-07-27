@@ -11,31 +11,35 @@
   margin-bottom: 50px !important;
 }
 
-.font-sm, .container .quiz, .container .buttons .btn, .result > p:nth-of-type(2) {
-  font-size: 1rem;
+.font-sm, .container > h2, .container .buttons .btn, .result > p:nth-of-type(2) {
+  font-size: 1.2rem;
 }
 @media screen and (min-width: 480px) {
-  .font-sm, .container .quiz, .container .buttons .btn, .result > p:nth-of-type(2) {
-    font-size: 1.5rem;
+  .font-sm, .container > h2, .container .buttons .btn, .result > p:nth-of-type(2) {
+    font-size: 1.8rem;
   }
 }
 
-.font-md {
+.font-md, .result > h3, .result > p {
   font-size: 1.5rem;
 }
 @media screen and (min-width: 480px) {
-  .font-md {
+  .font-md, .result > h3, .result > p {
     font-size: 2rem;
   }
 }
 
-.font-lg, .result > h3, .result > p {
-  font-size: 2rem;
+.font-lg, .container .quiz {
+  font-size: 4rem;
 }
 @media screen and (min-width: 480px) {
-  .font-lg, .result > h3, .result > p {
-    font-size: 2.2rem;
+  .font-lg, .container .quiz {
+    font-size: 5rem;
   }
+}
+
+.maxWidth, .container .quiz, .container .form {
+  max-width: 500px;
 }
 
 * {
@@ -71,31 +75,45 @@ body {
   height: fit-content;
   margin: 0 auto;
   padding-top: 50px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 .container > h2 {
-  font-size: 18px;
   text-align: center;
 }
 .container .quiz {
   border: 1px solid #333;
   border-radius: 10px;
   width: 80%;
-  max-width: 500px;
-  height: 60px;
+  height: 150px;
   line-height: 60px;
-  text-align: center;
   font-weight: 600;
   margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   background-color: rgb(255, 249, 242);
 }
 .container .form {
+  width: 300px;
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
 }
 .container .form label {
+  flex-basis: 33%;
+  text-align: center;
   margin-right: 15px;
-  font-size: 1.2rem;
+  font-size: 1.5em;
   cursor: pointer;
+  position: relative;
+}
+.container .form label > input[type=radio] {
+  width: 1.2em;
+  height: 1.2em;
+  position: absolute;
+  top: 0.6em;
+  left: 0;
 }
 .container .form label input {
   cursor: inherit;
@@ -119,7 +137,7 @@ body {
   cursor: pointer;
   background-color: #ffdddd;
   transition: all 0.2s;
-  margin-right: 10px;
+  margin-right: 30px;
 }
 .container .buttons .btn:hover {
   background-color: #333;
