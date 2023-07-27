@@ -1,4 +1,4 @@
-// 元データをここで宣言
+// Original data here
 const main_data = [
     {
         id: 1,
@@ -18,24 +18,26 @@ const main_data = [
 ];
 
 function create_array(obj) {
-    // 問題を格納し、シャッフルするための配列をここで作る
+    // Make a new array ---- add Qestions, Answers, Answers slected, and Correct or not
     const new_data = [];
 
+    // column1 -- city(Question), column2 -- prefecture name(Answer), column3 -- prefecture name(Answer you pick), column4 -- true/false(Correct or not)
     obj.forEach(val => {
         for (let i = 0; i < val.cities.length; i++) {
             new_data.push([val.cities[i],val.pref,"",false]);
         }
     });
 
-    // ここで全データをシャッフルする
+    // Shuffle all 
     for(let i = (new_data.length - 1); 0 < i; i--){
-        // 0〜(i+1)の範囲で値を取得
+        // get a randome num number between 0〜(i+1)
         let r = Math.floor(Math.random() * (i + 1));
-        // 要素の並び替えを実行
+        // Exchange elements in the for loop
         let tmp = new_data[i];
         new_data[i] = new_data[r];
         new_data[r] = tmp;
     }    
-
+     
+    // Array done
     return new_data;
 }
