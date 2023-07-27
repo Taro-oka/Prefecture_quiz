@@ -9,13 +9,13 @@
 
 body {
     width: 100vw;
-    height: 100vh;
+    height: fit-content;
 }
 
 .global-container {
     background-color: rgb(236, 255, 255);
     width: 100%;
-    height: 100%;
+    height: 100vh;
 
     &.inview {
         &::after {
@@ -39,7 +39,14 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
+    position: relative;
 
+    & .question_cnt{
+        @extend .mb-sm;
+        @extend .font-sm;
+        font-weight: 600;
+    }
+    
     & > h2 {
         @extend .mb-md;
         @extend .font-sm;
@@ -66,34 +73,40 @@ body {
 
     & .form {
         @extend .mb-md;
-        width: 300px;
+        width: 100%;
         @extend .maxWidth;
         display: flex;
-        justify-content: space-between;
-        & label {
-            flex-basis: 33%;
+        justify-content: space-around;
+        flex-wrap: wrap;
+        & div {
+            width: fit-content;
+            margin-bottom: 5px;
+            flex-basis: 45%;
             text-align: center;
-            margin-right: 15px;
             font-size: 1.5em;
-            cursor: pointer;
             position: relative;
 
-            & > input[type="radio"]{
-                width: 1.2em;
-                height: 1.2em;
-                position: absolute;
-                top: 0.6em;
-                left: 0;
+            & > label {
+                cursor: pointer;
+                & > input[type="radio"]{
+                    cursor: pointer;
+                    width: 1.2em;
+                    height: 1.2em;
+                    position: absolute;
+                    top: 0.6em;
+                    left: 1.8em;
+    
+                    @include mq(sm) {
+                        left: 4em;
+                    }
+                }
+    
+                &.disabled {
+                    color: #9e9e9e;
+                    cursor: default;
+                }
             }
-
-            & input{
-                cursor: inherit;
-            }
-
-            &.disabled {
-                color: #9e9e9e;
-                cursor: default;
-            }
+  
         }
 
     }
@@ -115,7 +128,11 @@ body {
             background-color: #ffdddd;
             transition: all 0.2s;
             margin-right: 30px;
-    
+            
+            &:last-child {
+                margin-right: 0;
+            }
+
             &:hover {
                 background-color: #333;
                 color: white;
@@ -134,7 +151,7 @@ body {
 .result {
     width: 80%;
     max-width: 800px;
-    height: fit-content;
+    height: 90%;
     z-index: -1; /* 編集時ここを修正 */
     position: fixed;
     top: 50px;
@@ -144,6 +161,7 @@ body {
     opacity: 0; /* 編集時ここを修正 */
     transition: opacity 0.5s;
     border-radius: 25px;
+    overflow-y: scroll;
 
     & .close-btn {
         position: absolute;
@@ -220,7 +238,7 @@ body {
         }
         &:nth-of-type(2) {
             @extend .font-sm;
-            @extend .mb-lg;
+            @extend .mb-md;
             height: 1.5rem;
         }
     }
