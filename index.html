@@ -14,7 +14,7 @@
                 <span></span>
             </button>
             <h3>結果</h3>
-            <p class="score">ここに結果が</p>
+            <p class="score"></p>
             <p class="comment"></p>
             <table class="result__table">
                 <tr>
@@ -26,12 +26,16 @@
             </table>
         </div>
         <div class="container">
+            <div class="question_cnt"><span class="current_qeuestion">0</span> / <span class="total_questions"></span>問</div>
             <h2>表示される市のある都道府県を選んでね</h1>
             <div class="quiz"></div>
             <form class="form">
-                <label><input type="radio" name="op" value="osaka">大阪</label>
-                <label><input type="radio" name="op" value="kyoto">京都</label>
-                <label><input type="radio" name="op" value="hyogo">兵庫</label>
+                <div><label><input type="radio" name="op" value="osaka">大阪</label></div>
+                <div><label><input type="radio" name="op" value="kyoto">京都</label></div>
+                <div><label><input type="radio" name="op" value="hyogo">兵庫</label></div>
+                <div><label><input type="radio" name="op" value="shiga">滋賀</label></div>
+                <div><label><input type="radio" name="op" value="nara">奈良</label></div>
+                <div><label><input type="radio" name="op" value="wakayama">和歌山</label></div>
             </form>
             <div class="buttons">
                 <button class="btn refresh">開始</button>
