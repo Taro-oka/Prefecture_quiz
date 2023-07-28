@@ -58,7 +58,10 @@ body {
 .global-container {
   background-color: rgb(236, 255, 255);
   width: 100%;
+  height: -moz-fit-content;
+  height: fit-content;
   min-height: 100vh;
+  position: relative;
 }
 .global-container.inview::after {
   content: "";
@@ -81,7 +84,6 @@ body {
   flex-direction: column;
   align-items: center;
   position: relative;
-  background-color: rgb(236, 255, 255);
 }
 .container .question_cnt {
   font-weight: 600;

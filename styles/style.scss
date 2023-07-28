@@ -16,7 +16,9 @@ body {
 .global-container {
     background-color: rgb(236, 255, 255);
     width: 100%;
+    height: fit-content;
     min-height: 100vh;
+    position: relative;
 
     &.inview {
         &::after {
@@ -41,7 +43,6 @@ body {
     flex-direction: column;
     align-items: center;
     position: relative;
-    background-color: rgb(236, 255, 255);
 
     & .question_cnt{
         @extend .mb-sm;
