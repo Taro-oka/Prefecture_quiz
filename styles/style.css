@@ -58,7 +58,7 @@ body {
 .global-container {
   background-color: rgb(236, 255, 255);
   width: 100%;
-  height: 100vh;
+  min-height: 100vh;
 }
 .global-container.inview::after {
   content: "";
@@ -81,6 +81,7 @@ body {
   flex-direction: column;
   align-items: center;
   position: relative;
+  background-color: rgb(236, 255, 255);
 }
 .container .question_cnt {
   font-weight: 600;
@@ -124,7 +125,7 @@ body {
   width: 1.2em;
   height: 1.2em;
   position: absolute;
-  top: 0.8em;
+  top: 0.95em;
   left: 1.8em;
 }
 @media screen and (min-width: 480px) {
@@ -139,9 +140,14 @@ body {
 .container .buttons {
   width: 95%;
   height: 50px;
-  margin: 0 auto;
   display: flex;
   justify-content: center;
+  margin: 0 auto;
+}
+@media screen and (min-width: 480px) {
+  .container .buttons {
+    margin: 0 auto 20px auto;
+  }
 }
 .container .buttons .btn {
   width: 100px;
