@@ -165,7 +165,7 @@ class btn_addEvents {
                 this.DOM.gc.classList.add("inview");
                 this.DOM.result.classList.add("inview");
         
-                this.DOM.score_p.textContent = `${this.NonDOM.arr.length}点中${score}点です`;
+                this.DOM.score_p.textContent = `${this.NonDOM.arr.length}点中 ${score} 点です`;
             }
     
             function create_table() {
@@ -209,12 +209,16 @@ class btn_addEvents {
                 // メッセージを点数別に表示する（ちょっと遅らせて）
                 const write_comment = function() {
                     let content;
-                    if (score <= this.NonDOM.arr.length *0.4) {
-                        content = "全然だめです( ﾉД`)"
-                    }else if(score <= this.NonDOM.arr.length * 0.8) {
-                        content = "まあまあです((´∀｀))"
+                    if (score <= this.NonDOM.arr.length *0.3) {
+                        content = "全然だめです( ﾉД`)";
+                    }else if(score <= this.NonDOM.arr.length *0.5){
+                        content = " もっと頑張ろう( ﾉД`)";
+                    }else if(score <= this.NonDOM.arr.length *0.8){
+                        content = "まあまあです((´∀｀))";
+                    }else if(score <= this.NonDOM.arr.length * 0.9){
+                        content = "なかなかすごいぞ(* ´艸｀)";
                     }else{
-                        content = "よくできました！！！！"
+                        content = "あなたは関西の父です。";
                     }
                 
                     this.DOM.comment.textContent = content;
@@ -231,11 +235,11 @@ class btn_addEvents {
             this.NonDOM.ans_pre = this.NonDOM.arr[this.NonDOM.cnt][1];
             this.NonDOM.ans_city = this.NonDOM.arr[this.NonDOM.cnt][0];
     
-            // show the qusetion（問題を表示）
-            this.DOM.quiz.textContent = this.NonDOM.ans_city;
-
             // If the content is too big, make it shrink to fit（はみ出した場合、縮ませる）
             shrinkTofit.bind(this)();
+            
+            // show the qusetion（問題を表示）
+            this.DOM.quiz.textContent = this.NonDOM.ans_city;
 
             // add 1 to cnt as you go through one question(一問終了するごとに、ここでcntを+1していく)
             this.NonDOM.cnt ++;
@@ -249,7 +253,7 @@ class btn_addEvents {
 
             function shrinkTofit() {
                 const width = this.DOM.quiz.clientWidth;
-                const length = this.DOM.quiz.textContent.length;
+                const length = this.NonDOM.ans_city.length;
                 const current_fontSize = getComputedStyle(this.DOM.quiz).fontSize.replace("px", "");
                 const calced_fontSize = Math.floor(width / length);
 
@@ -265,7 +269,17 @@ class btn_addEvents {
 
         // Pass the info to the array（配列に情報を渡す）
         const t = Pass_to_array_and_Count.bind(this)(0);        
-        if(get_ready_to_next.bind(this)(t)) {    
+        if(get_ready_to_next.bind(this)(t)) {  
+            
+            // if it's the lasta question, 
+            // 最後の問題になり、確定が押されたら、
+            if(this.NonDOM.cnt === this.NonDOM.arr.length) {
+                // disablize the "確定" btn（確定ボタンをグレーアウトする）
+                    this.DOM.btn2.disabled = true;
+                // change the textcontent of bt1 from「次へ」ro「結果」(「次へ」から「結果」に)
+                    this.DOM.btn1.textContent = "結果";
+            }
+
             // Give "permission" to go next
             // 最後にネクストを許可する
             this.NonDOM.next = true;
