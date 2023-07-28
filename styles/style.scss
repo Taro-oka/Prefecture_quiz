@@ -16,7 +16,7 @@ body {
 .global-container {
     background-color: rgb(236, 255, 255);
     width: 100%;
-    height: 100vh;
+    min-height: 100vh;
 
     &.inview {
         &::after {
@@ -41,6 +41,7 @@ body {
     flex-direction: column;
     align-items: center;
     position: relative;
+    background-color: rgb(236, 255, 255);
 
     & .question_cnt{
         @extend .mb-sm;
@@ -94,7 +95,7 @@ body {
                     width: 1.2em;
                     height: 1.2em;
                     position: absolute;
-                    top: 0.8em;
+                    top: 0.95em;
                     left: 1.8em;
     
                     @include mq(sm) {
@@ -115,9 +116,13 @@ body {
     & .buttons {
         width: 95%;
         height: 50px;
-        margin: 0 auto;
         display: flex;
         justify-content: center;
+        margin: 0 auto;
+        
+        @include mq(sm) {
+            margin: 0 auto 20px auto;
+        }
 
         & .btn {
             @extend .font-sm;
