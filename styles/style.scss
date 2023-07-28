@@ -5,6 +5,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: 'Zen Maru Gothic', sans-serif;
 }
 
 body {
@@ -128,6 +129,7 @@ body {
             background-color: #ffdddd;
             transition: all 0.2s;
             margin-right: 30px;
+            color: #333;
             
             &:last-child {
                 margin-right: 0;
