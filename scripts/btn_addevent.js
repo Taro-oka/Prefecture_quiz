@@ -251,6 +251,10 @@ class btn_addEvents {
             // 次にこれがtrueになるまでは、次の問題へ行くのを防ぐ（誤って2回クリックした場合など）
             this.DOM.next = false;
 
+            // disablize myself(until "確定" is clicked)
+            // "確定"が押されるまで無効化
+            this.DOM.btn1.disabled = true;
+
             function shrinkTofit() {
                 const width = this.DOM.quiz.clientWidth;
                 const length = this.NonDOM.ans_city.length;
@@ -263,7 +267,7 @@ class btn_addEvents {
             }
         }
     }
-
+    
     _innit_btn2() {
         // console.log("This is btn2");
 
@@ -280,9 +284,10 @@ class btn_addEvents {
                     this.DOM.btn1.textContent = "結果";
             }
 
-            // Give "permission" to go next
-            // 最後にネクストを許可する
+            // Give "permission" to go next, and activate "次へ" btn
+            // 最後にネクストを許可し、「次へ」を有効化
             this.NonDOM.next = true;
+            this.DOM.btn1.disabled = false;
         }else{
             this.NonDOM.next = false;
         }
@@ -346,7 +351,7 @@ class btn_addEvents {
     _innit_btn3() {
         this.DOM.result.classList.remove(this.NonDOM.inview);
         this.DOM.gc.classList.remove(this.NonDOM.inview);
-        window.location.reload();
+        window.location.reload();   
     }
 
     _innit_test() {

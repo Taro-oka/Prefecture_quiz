@@ -54,7 +54,7 @@ body {
         font-weight: 600;
     }
     
-    & > h2 {
+    & > h1 {
         @extend .mb-md;
         @extend .font-sm;
         text-align: center;
@@ -228,7 +228,7 @@ body {
         opacity: 1;
     }
 
-    & > h3 {
+    & > h2 {
         @extend .font-md;
         width: fit-content;
         margin: 0 auto 30px auto;
