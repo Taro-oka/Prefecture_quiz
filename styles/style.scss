@@ -38,11 +38,15 @@ body {
     width: 95%;
     height: fit-content;
     margin: 0 auto;
-    padding-top: 50px;
+    padding-top: 20px;
     display: flex;
     flex-direction: column;
     align-items: center;
     position: relative;
+
+    @include mq(sm) {
+        padding-top: 50px;
+    }
 
     & .question_cnt{
         @extend .mb-sm;
@@ -227,7 +231,7 @@ body {
     & > h3 {
         @extend .font-md;
         width: fit-content;
-        margin: 30px auto;
+        margin: 0 auto 30px auto;
         line-height: 2rem;
         border: 2px solid #6b6b6b;
         border-radius: 10px;
