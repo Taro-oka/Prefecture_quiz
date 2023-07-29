@@ -3,7 +3,7 @@
   margin-bottom: 20px !important;
 }
 
-.mb-md, .container > h2, .container .quiz, .container .form, .result > p:nth-of-type(2) {
+.mb-md, .container > h1, .container .quiz, .container .form, .result > p:nth-of-type(2) {
   margin-bottom: 45px !important;
 }
 
@@ -11,20 +11,20 @@
   margin-bottom: 70px !important;
 }
 
-.font-sm, .container .question_cnt, .container > h2, .container .buttons .btn, .result > p:nth-of-type(2) {
+.font-sm, .container .question_cnt, .container > h1, .container .buttons .btn, .result > p:nth-of-type(2) {
   font-size: 1.2rem;
 }
 @media screen and (min-width: 480px) {
-  .font-sm, .container .question_cnt, .container > h2, .container .buttons .btn, .result > p:nth-of-type(2) {
+  .font-sm, .container .question_cnt, .container > h1, .container .buttons .btn, .result > p:nth-of-type(2) {
     font-size: 1.8rem;
   }
 }
 
-.font-md, .result > h3, .result > p {
+.font-md, .result > h2, .result > p {
   font-size: 1.5rem;
 }
 @media screen and (min-width: 480px) {
-  .font-md, .result > h3, .result > p {
+  .font-md, .result > h2, .result > p {
     font-size: 2rem;
   }
 }
@@ -93,7 +93,7 @@ body {
 .container .question_cnt {
   font-weight: 600;
 }
-.container > h2 {
+.container > h1 {
   text-align: center;
 }
 .container .quiz {
@@ -240,7 +240,7 @@ body {
   z-index: 2;
   opacity: 1;
 }
-.result > h3 {
+.result > h2 {
   width: -moz-fit-content;
   width: fit-content;
   margin: 0 auto 30px auto;
