@@ -191,17 +191,17 @@ body {
   width: 80%;
   max-width: 800px;
   height: 90%;
-  z-index: -1; /* 編集時ここを修正 */
   position: fixed;
   top: 50px;
   left: 50%;
   transform: translateX(-50%);
   background-color: #fdffb4;
-  opacity: 0; /* 編集時ここを修正 */
-  visibility: hidden;
   transition: opacity 0.5s;
   border-radius: 25px;
   overflow-y: scroll;
+  opacity: 0; /* 編集時ここを修正 */
+  visibility: hidden; /* 編集時ここを修正 */
+  z-index: -1; /* 編集時ここを修正 */
 }
 .result .close-btn {
   position: sticky;
@@ -244,9 +244,9 @@ body {
   text-align: center;
 }
 .result.inview {
-  z-index: 2;
-  visibility: visible;
   opacity: 1;
+  visibility: visible;
+  z-index: 2;
 }
 .result > h2 {
   width: -moz-fit-content;
