@@ -177,6 +177,7 @@ body {
     transform: translateX(-50%);
     background-color: #fdffb4;
     opacity: 0; /* 編集時ここを修正 */
+    visibility: hidden;
     transition: opacity 0.5s;
     border-radius: 25px;
     overflow-y: scroll;
@@ -231,6 +232,7 @@ body {
 
     &.inview {
         z-index: 2;
+        visibility: visible;
         opacity: 1;
     }
 
