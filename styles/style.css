@@ -48,6 +48,12 @@
   box-sizing: border-box;
   font-family: "Zen Maru Gothic", sans-serif;
 }
+@font-face {
+  font-family: "Zen Maru Gothic";
+  src: url(fonts/ZenMaruGothic-Regular.ttf);
+  font-style: normal;
+  font-display: swap;
+}
 
 body {
   width: 100vw;

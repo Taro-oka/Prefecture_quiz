@@ -5,6 +5,12 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    @font-face {
+        font-family: 'Zen Maru Gothic';
+        src: url(fonts/ZenMaruGothic-Regular.ttf);
+        font-style: normal;
+        font-display: swap;
+    }
     font-family: 'Zen Maru Gothic', sans-serif;
 }
 
