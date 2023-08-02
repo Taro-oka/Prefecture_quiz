@@ -34,30 +34,21 @@ class btn_addEvents {
         this.NonDOM.inview = class_inview;
 
         this.func = {};
-        this.func.btn1 = this._innit_btn1;
-        this.func.btn2 = this._innit_btn2;
-        this.func.test = this._innit_test;
+        this.func.btn1 = this._innit_btn1.bind(this);
+        this.func.btn2 = this._innit_btn2.bind(this);
+        this.func.btn3 = this._innit_btn3.bind(this);
     }
 
     addEvents_btn1() {
-        const _this_ = this;
-        this.DOM.btn1.addEventListener("click", function(event) {
-            return _this_._innit_btn1(event);
-        })
+        this.DOM.btn1.addEventListener("click", this.func.btn1);
     }
 
     addEvents_btn2() {
-        const _this_ = this;
-        this.DOM.btn2.addEventListener("click", function(event) {
-            return _this_._innit_btn2(event);
-        })
+        this.DOM.btn2.addEventListener("click", this.func.btn2);
     }
 
     addEvents_btn3() {
-        const _this_ = this;
-        this.DOM.btn3.addEventListener("click", function(event) {
-            return _this_._innit_btn3(event);
-        })
+        this.DOM.btn3.addEventListener("click", this.func.btn3);
     }
 
     _innit_btn1() {
